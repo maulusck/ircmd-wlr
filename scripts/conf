@@ -1,0 +1,8 @@
+# enable this for verbose operation
+debug=0
+
+tasmota_ircmd_ip=10.10.10.189
+tasmota_rainsens_ip=10.10.10.188
+
+rain_voltage_defaults=3882
+rain_voltage_threshold=3000

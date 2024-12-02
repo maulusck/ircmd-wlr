@@ -1,2 +1,4 @@
-# ignore custom configs
-/configs
+# ignore local configs
+/conf
+# ignore dumps
+/dump

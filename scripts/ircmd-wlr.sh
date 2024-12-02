@@ -1,14 +1,13 @@
 #!/bin/sh
 
-# enable this for verbose operation
-debug=0
+# read configuration
+[ -r conf ] && . ./conf
 
-tasmota_ip=10.10.10.189
 irsend_cmd() {
 	[ $debug -eq 1 ] && echo "Sending data:\n$1"
-	[ $debug -eq 1 ] && echo "Executing: curl -s \"http://$tasmota_ip/cm?cmnd=IrSend%200,$1\""
+	[ $debug -eq 1 ] && echo "Executing: curl -s \"http://$tasmota_ircmd_ip/cm?cmnd=IrSend%200,$1\""
 	last_cmd=$1
-	curl -s "http://$tasmota_ip/cm?cmnd=IrSend%200,$1"|jq .IRSend
+	curl -s "http://$tasmota_ircmd_ip/cm?cmnd=IrSend%200,$1"|jq .IRSend
 	sleep 0.3
 	[ $debug -eq 1 ] && sleep 5
 }
@@ -24,7 +23,7 @@ clear
 ============================================
     IR-COM - WINDOW MASTER 'WLR 100 0301'
 ============================================
-Connecting to device: [$tasmota_ip]
+Connecting to device: [$tasmota_ircmd_ip]
 
 Available commands:
 	1) Open left	[M1/1]
